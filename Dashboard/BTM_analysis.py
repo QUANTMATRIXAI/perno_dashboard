@@ -6,9 +6,10 @@ from openpyxl import load_workbook
 
 
 # st.set_page_config(page_title="BTM Analysis", layout="wide")
+import os
 st.set_page_config(
     page_title="Segment & Brand Performance Dashboard",
-    page_icon=r"..\Image\perno_logo.png",
+    page_icon=os.path.join("..", "Image", "perno_logo.png"),
     layout="wide"
 )
 
@@ -18,7 +19,7 @@ import streamlit as st
 
 
 # Load logo from your local path
-logo_path = r"..\Image\perno_logo.png"   # ✅ raw string avoids path errors
+logo_path = os.path.join("..", "Image", "perno_logo.png")   # Cross-platform path
 logo = Image.open(logo_path)
 
 # Header layout: Logo + Title
