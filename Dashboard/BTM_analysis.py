@@ -2217,14 +2217,18 @@ with tab3:
     if uploaded_file1 is not None:
 
         
-        admix_filter = st.selectbox(
-            "Select Segment",
-            ["Admix Deluxe", "Admix Premium", "Admix Value", "S&PIB", "SP+IB"]
-        )
+        # admix_filter = st.selectbox(
+        #     "Select Segment",
+        #     ["Admix Deluxe", "Admix Premium", "Admix Value", "S&PIB", "SP+IB"]
+        # )
 
         col1, col2 = st.columns(2)
 
         with col1:
+            admix_filter = st.selectbox(
+                "Select Segment",
+                ["Admix Deluxe", "Admix Premium", "Admix Value", "S&PIB", "SP+IB"]
+            )
 
             st.markdown(f"#### 🏭 Manufacturing Co. View")
 
@@ -2458,6 +2462,10 @@ with tab3:
             import json
             import requests
             import plotly.express as px
+            admix_filter = st.selectbox(
+                "Select Brand",
+                ["All Brands", "Blenders Pride", "Royal Challenge", "Signature", "Other Brands"]
+            )
 
             st.markdown(f"#### 📍 India State Category Map (P1 / P2 / Others)")
 
@@ -2785,6 +2793,16 @@ with tab3:
             )
 
             st.plotly_chart(fig2, use_container_width=True)
+
+        # ---- Comment box for BAR chart ----
+        quarter_comment = st.text_area(
+            "📝 Comment:",
+            placeholder="Example: Q1 A25 NS growth strong due to...",
+            key="quarterly_comment"
+        )
+
+        if quarter_comment:
+            st.caption("✔ Comment saved!")
 
         st.markdown(
             """ 
